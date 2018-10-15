@@ -24,9 +24,9 @@ Contenu du fichier http://solidarites-sante.gouv.fr/IMG/xlsx/dgos_ght_liste_2017
 
 region, ght_libelle, ght_code, finess, categorie, etablissement, commune, code_postal
 """
-__author__ = 'Frederic Laurent'
+__author__ = "Frederic Laurent"
 __version__ = "1.1"
-__copyright__ = 'Copyright 2017, Frederic Laurent'
+__copyright__ = "Copyright 2017, Frederic Laurent"
 __license__ = "MIT"
 
 
@@ -156,7 +156,7 @@ class GHT:
         :return: -
 
         """
-        
+
         xl = pandas.ExcelFile(ght_def_filename, dtype=str)
         self.df_ght = xl.parse("Feuil1")
         self.df_ght.columns = GHT.GHT_KEYS
@@ -229,7 +229,7 @@ class GHT:
         ].ght_libelle.unique()[0]
         ght_state = self.df_ght.loc[self.df_ght.ght_code == ght_code].region.unique()[0]
 
-        ej_count = len(self.df_ght[self.df_ght.ght_code==ght_code])
+        ej_count = len(self.df_ght[self.df_ght.ght_code == ght_code])
 
         org_ght = dict(
             resourceType="Organization",
@@ -290,7 +290,7 @@ class GHT:
                 eg_id = "%s-%s" % (str(row.finess).strip(), row_et.nofinesset)
 
                 if row_et.categetab:
-                    #in ["101", "355"]:
+                    # in ["101", "355"]:
                     # entite geo
                     res_org_et = dict(
                         resourceType="Organization",
@@ -426,7 +426,9 @@ class GHT:
                         x, y = float(geo.coordxet), float(geo.coordyet)
 
                     location["position"] = dict(longitude=x, latitude=y)
-                    location["managingOrganization"] = dict(reference=f"Organization/{eg_id}")
+                    location["managingOrganization"] = dict(
+                        reference=f"Organization/{eg_id}"
+                    )
                     bundle["entry"].append(dict(resource=location))
         return bundle
 
@@ -545,10 +547,7 @@ class GHT:
                 xmlelt(
                     xmlelt(container, "partOf"),
                     "reference",
-                    {
-                        "value": entry["resource"]["partOf"]["reference"]
-                        
-                    },
+                    {"value": entry["resource"]["partOf"]["reference"]},
                 )
             if "position" in entry["resource"]:
                 pos = xmlelt(container, "position")
@@ -590,7 +589,11 @@ def main():
         help="Fichier du ministère, donnant la liste des GHT",
         default="files/dgos_ght_liste_2017_10_31.xlsx",
     )
-    parser.add_argument("--finessfile",help="Fichier Finess des établissements", default="files/etalab-cs1100507-stock-20181011-0450.csv")
+    parser.add_argument(
+        "--finessfile",
+        help="Fichier Finess des établissements",
+        default="files/etalab-cs1100507-stock-20181011-0450.csv",
+    )
     parser.add_argument(
         "--outputdir",
         help="Repertoire de destination des fichiers générés",
@@ -604,7 +607,7 @@ def main():
     # Liste les codes GHT disponibles
     if args.list:
         for g in ght.ght_all():
-            print(g.replace('_','-'))
+            print(g.replace("_", "-"))
 
     # Traitement d'un code en particulier (ou tous les codes si all)
     if args.code:
