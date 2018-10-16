@@ -25,8 +25,8 @@ Contenu du fichier http://solidarites-sante.gouv.fr/IMG/xlsx/dgos_ght_liste_2017
 region, ght_libelle, ght_code, finess, categorie, etablissement, commune, code_postal
 """
 __author__ = "Frederic Laurent"
-__version__ = "1.1"
-__copyright__ = "Copyright 2017, Frederic Laurent"
+__version__ = "1.0"
+__copyright__ = "Copyright 2018, Frederic Laurent"
 __license__ = "MIT"
 
 
@@ -44,6 +44,8 @@ import codecs
 from pyproj import Proj, transform
 import lxml.etree
 from lxml.etree import Element, SubElement
+
+import srcdata
 
 
 def xmlelt(parent, tag, attrs=None):
@@ -143,6 +145,8 @@ class GHT:
         "datemaj",
     ]
 
+    SRCDIR = "files"
+
     def __init__(self):
         self.df_ght = None
         self.df_finess = None
@@ -157,15 +161,50 @@ class GHT:
 
         """
 
-        xl = pandas.ExcelFile(ght_def_filename, dtype=str)
+        local_filename = ght_def_filename
+        if not ght_def_filename or not os.path.exists(ght_def_filename):
+            dgosfiles = sorted(
+                list(
+                    filter(
+                        lambda x: x == srcdata.SANTE_GOUV_GHT_FILENAME,
+                        os.listdir(GHT.SRCDIR),
+                    )
+                )
+            )
+            if len(dgosfiles):
+                # fichier present
+                local_filename = os.path.join(GHT.SRCDIR, dgosfiles[0])
+            else:
+                # aucun fichier, telechargement
+                local_filename = srcdata.download_sante_gouv_ght(GHT.SRCDIR)
+
+        xl = pandas.ExcelFile(local_filename, dtype=str)
         self.df_ght = xl.parse("Feuil1")
         self.df_ght.columns = GHT.GHT_KEYS
+
+        local_filename = etalab_filename
+        if not etalab_filename or not os.path.exists(etalab_filename):
+            # recherche d'un fichier present
+            etalabfiles = sorted(
+                list(
+                    filter(
+                        lambda x: x.startswith(srcdata.DATA_GOUV_FINESS_GEO),
+                        os.listdir(GHT.SRCDIR),
+                    )
+                )
+            )
+            if len(etalabfiles):
+                # fichier present
+                local_filename = os.path.join(GHT.SRCDIR, etalabfiles[0])
+            else:
+                # fichier absent, telechargement
+                local_filename = srcdata.download_data_gouv_finess(GHT.SRCDIR)
 
         # lecture fichier etalab
         finess = io.StringIO()
         finess_geo = io.StringIO()
 
-        with codecs.open(etalab_filename, "r", "iso-8859-1") as fin:
+        with codecs.open(local_filename, "r", "iso-8859-1") as fin:
             for line in fin.readlines():
                 if line.startswith("structureet"):
                     finess.write(line)
@@ -585,15 +624,9 @@ def main():
     )
     parser.add_argument("--list", action="store_true", help="Liste les codes GHT")
     parser.add_argument(
-        "--dgosfile",
-        help="Fichier du ministère, donnant la liste des GHT",
-        default="files/dgos_ght_liste_2017_10_31.xlsx",
+        "--dgosfile", help="Fichier du ministère, donnant la liste des GHT"
     )
-    parser.add_argument(
-        "--finessfile",
-        help="Fichier Finess des établissements",
-        default="files/etalab-cs1100507-stock-20181011-0450.csv",
-    )
+    parser.add_argument("--finessfile", help="Fichier Finess des établissements")
     parser.add_argument(
         "--outputdir",
         help="Repertoire de destination des fichiers générés",

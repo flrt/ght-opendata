@@ -1,7 +1,24 @@
 Organisations composant les GHT
 ===============================
 
-# Informations sur le programme
+Programme permettant de générer une représentation structure des GHT : [Groupements hospitaliers de territoire](https://solidarites-sante.gouv.fr/professionnels/gerer-un-etablissement-de-sante-medico-social/groupements-hospitaliers-de-territoire/)
+
+Le programme fait suite aux articles : 
+
+- [Informations GHT en Open Data](http://www.opikanoba.org/sante/ght-opendata)
+- [Données GHT en open data au format FHIR](http://www.opikanoba.org/sante/ght-fhir)
+
+La source des données provient de :
+
+- la liste des établissements formant les GHT : Source ministère de la santé
+- des données complémentaires fournies par la DRESS en open data sur [data.gouv.fr](https://data.gouv.fr)
+
+Le programme `srcdata.py` permet de télécharger ces fichiers automatique :
+
+- via le lien direct sur le fichier XSLX du ministère (qui ne changera pas)
+- via l'[API de data.gouv.fr](https://www.data.gouv.fr/fr/apidoc/) pour retrouver la dernière version du fichier finess
+
+# Informations sur le programme de génération des données
 L'option `-h` permet de connaitre les différentes options disponibles :
 
 ```
@@ -69,3 +86,42 @@ Total 135 : OK=135 / KO=0
 ```
 
 La validation utilise le programme [xmllint](http://xmlsoft.org/xmllint.html).
+
+
+## Utilisation du container docker
+Il suffit de constuire le container
+
+```
+$ docker build -t ght .
+```
+
+Puis d'exécuter un bash
+```
+docker run -t -v "$PWD":/opt ght /bin/bash
+```
+
+Et de lancer le programme de génération ou de téléchargement des données sources
+```
+$ # Telechargement des donnnees
+
+$ python srcdata.py 
+Telechargement : https://static.data.gouv.fr/resources/finess-extraction-du-fichier-des-etablissements/20181011-114801/etalab-cs1100507-stock-20181011-0450.csv -> files/etalab-cs1100507-stock-20181011-0450.csv
+Telechargement : https://solidarites-sante.gouv.fr/IMG/xlsx/dgos_ght_liste_2017_10_31.xlsx -> files/dgos_ght_liste_2017_10_31.xlsx
+
+$ # Generation du bundle pour le GHT PDL-04
+
+$ python generator.py --code PDL-04 
+Generation GHT PDL-04
+```
+
+La validation peut se faire avec les fichiers XSD de FHIR.
+Les schemas sont disponibles sur la [page Downloads](https://www.hl7.org/fhir/downloads.html) et le zip contenant les schémas XSD est [fhir-all-xsd.zip](https://www.hl7.org/fhir/fhir-all-xsd.zip) qu'il suffit de dézipper dans le répertoire `xsd` par exemple. Ensuite, en donnant le nom du fichier XSD global et le répertoire des fichiers générés, la validation peut se faire :
+
+```
+$ # Validation des documents XML produits
+
+$ ./validate_xml.sh xsd/fhir-all-xsd/fhir-all.xsd output/
+output//PDL-04.xml validates
+Total 1 : OK=1 / KO=0
+
+```

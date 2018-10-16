@@ -2,3 +2,4 @@ files/*
 .vscode/*
 __pycache__/*
 output/*
+xsd/*

@@ -1,0 +1,204 @@
+{
+    "acronym": null,
+    "badges": [],
+    "created_at": "2013-07-08T15:31:16.545000",
+    "deleted": null,
+    "description": "Liste des \u00e9tablissements du domaine sanitaire et social.\n\n\nInformations sur la G\u00e9o-localisation : Le syst\u00e8me d\u2019information source contenant les coordonn\u00e9es g\u00e9ographiques permettant de g\u00e9o-localiser les \u00e9tablissements\nr\u00e9pertori\u00e9s dans FINESS est le produit BD-ADRESSE en version 2.1 de l\u2019IGN (Institut G\u00e9ographique National).\n\n**ZONE                    SYST\u00c8ME GEODESIQUE         ELLIPSO\u00cfDE ASSOCIEE              PROJECTION **\n//France m\u00e9tropolitaine : RGF93                      IAG GRS 1980                     Coniques conformes 9 zones - Lambert 93 \n//Guadeloupe, Martinique: WGS84                      IAG GRS 1980                     UTM Nord fuseau 20 \n//Guyane                : RGFG95                     IAG GRS 1980                     UTM Nord fuseau 22 \n//R\u00e9union               : RGR92                      IAG GRS 1980                     UTM Sud fuseau 40 \n//Mayotte               : RGM04                      IAG GRS 1980                     UTM Sud fuseau 38 \nFAQ : Pourquoi les colonnes n'apparaissent pas sur le fichier propos\u00e9 ?\nPour permettre l'utilisation d'automates, la structure du fichier s'affiche en format XSD. Pour retrouver les colonnes d'un format type tableur, il faut vous r\u00e9f\u00e9rer \u00e0 la description du fichier disponible en format PDF.",
+    "extras": {
+        "Date de production des donn\u00e9es": "15/10/2012",
+        "Langue": "fran\u00e7ais",
+        "Type de donn\u00e9es": "tableaux statistiques",
+        "datagouv_ckan_id": "61313bab-65f5-4e5e-8f28-6be4543838ef",
+        "datagouv_ckan_last_sync": "2014-09-16T09:09:36.523000",
+        "recommendations": [
+            "5862206588ee38254d3f4e5e"
+        ]
+    },
+    "frequency": "bimonthly",
+    "frequency_date": "2018-09-04T00:00:00",
+    "id": "53699569a3a729239d2046eb",
+    "last_modified": "2018-10-11T11:49:22.503000",
+    "last_update": "2018-10-11T11:49:01",
+    "license": "fr-lo",
+    "metrics": {
+        "cow_criticals": 0,
+        "cow_errors": 0,
+        "cow_score": 43.64081519327323,
+        "cow_warnings": 1,
+        "discussions": 32,
+        "followers": 57,
+        "issues": 0,
+        "nb_hits": 23,
+        "nb_uniq_visitors": 18,
+        "nb_visits": 18,
+        "reuses": 11,
+        "views": 39117
+    },
+    "organization": {
+        "acronym": null,
+        "class": "Organization",
+        "id": "534fff94a3a7292c64a77fc1",
+        "logo": "https://static.data.gouv.fr/avatars/3c/2a35d973814c2681b6941e11810ff3-original.png",
+        "logo_thumbnail": "https://static.data.gouv.fr/avatars/3c/2a35d973814c2681b6941e11810ff3-100.png",
+        "name": "Minist\u00e8re des Solidarit\u00e9s et de la Sant\u00e9",
+        "page": "https://www.data.gouv.fr/fr/organizations/ministere-des-solidarites-et-de-la-sante/",
+        "slug": "ministere-des-solidarites-et-de-la-sante",
+        "uri": "https://www.data.gouv.fr/api/1/organizations/ministere-des-solidarites-et-de-la-sante/"
+    },
+    "owner": null,
+    "page": "https://www.data.gouv.fr/fr/datasets/finess-extraction-du-fichier-des-etablissements/",
+    "private": false,
+    "resources": [
+        {
+            "checksum": {
+                "type": "sha1",
+                "value": "c97ff68179db5817ccab2801a08ba6444e934f7c"
+            },
+            "created_at": "2018-04-04T10:49:58.152000",
+            "description": "T\u00e9l\u00e9charger Description du jeu de donn\u00e9es \"\u00e9tablissements\"",
+            "extras": {},
+            "filesize": 177258,
+            "filetype": "file",
+            "format": "pdf",
+            "id": "d06a0924-9931-4a60-83b6-93abdb6acfd6",
+            "last_modified": "2018-04-04T10:50:01.669000",
+            "latest": "https://www.data.gouv.fr/fr/datasets/r/d06a0924-9931-4a60-83b6-93abdb6acfd6",
+            "metrics": {
+                "nb_hits": 0,
+                "nb_uniq_visitors": 0,
+                "nb_visits": 0,
+                "views": 489
+            },
+            "mime": "application/pdf",
+            "preview_url": null,
+            "published": "2018-04-04T10:49:58",
+            "title": "T\u00e9l\u00e9charger Description du jeu de donn\u00e9es \"\u00e9tablissements\"",
+            "type": "main",
+            "url": "https://www.data.gouv.fr/s/resources/finess-extraction-du-fichier-des-etablissements/20180404-104958/etalab_cs1100502.pdf"
+        },
+        {
+            "checksum": {
+                "type": "sha1",
+                "value": "586fbb3bbc8abbb7ad7e84141c0b2e8dbb8777ba"
+            },
+            "created_at": "2018-06-04T15:17:38.707000",
+            "description": "T\u00e9l\u00e9charger Description du jeu de donn\u00e9es \"\u00e9tablissements G\u00e9olocalis\u00e9s\"",
+            "extras": {},
+            "filesize": 123126,
+            "filetype": "file",
+            "format": "pdf",
+            "id": "d1a2f35f-8823-400f-9296-6eb7361ddf6f",
+            "last_modified": "2018-06-04T15:17:41.204000",
+            "latest": "https://www.data.gouv.fr/fr/datasets/r/d1a2f35f-8823-400f-9296-6eb7361ddf6f",
+            "metrics": {
+                "nb_hits": 0,
+                "nb_uniq_visitors": 0,
+                "nb_visits": 0,
+                "views": 100
+            },
+            "mime": "application/pdf",
+            "preview_url": null,
+            "published": "2018-06-04T15:17:38",
+            "title": "T\u00e9l\u00e9charger Description du jeu de donn\u00e9es \"\u00e9tablissements G\u00e9olocalis\u00e9s\"",
+            "type": "main",
+            "url": "https://www.data.gouv.fr/s/resources/finess-extraction-du-fichier-des-etablissements/20180604-151738/etalab_cs1100507.pdf"
+        },
+        {
+            "checksum": {
+                "type": "sha1",
+                "value": "27148c71d8b5d2716eb213ec936294c316d338b6"
+            },
+            "created_at": "2018-10-11T11:49:01.522000",
+            "description": "Extraction Finess des Etablissements au 03/10/2018",
+            "extras": {},
+            "filesize": 33462619,
+            "filetype": "file",
+            "format": "csv",
+            "id": "3b36bb4b-cf6d-4175-9b2c-e2e30bcc3ee3",
+            "last_modified": "2018-10-11T11:49:22.503000",
+            "latest": "https://www.data.gouv.fr/fr/datasets/r/3b36bb4b-cf6d-4175-9b2c-e2e30bcc3ee3",
+            "metrics": {
+                "views": 37
+            },
+            "mime": "text/csv",
+            "preview_url": "/tabular/preview/?url=https%3A%2F%2Fstatic.data.gouv.fr%2Fresources%2Ffiness-extraction-du-fichier-des-etablissements%2F20181011-114858%2Fetalab-cs1100502-stock-20181011-0458.csv",
+            "published": "2018-10-11T11:49:01",
+            "title": "Extraction Finess des Etablissements au 03/10/2018",
+            "type": "main",
+            "url": "https://static.data.gouv.fr/resources/finess-extraction-du-fichier-des-etablissements/20181011-114858/etalab-cs1100502-stock-20181011-0458.csv"
+        },
+        {
+            "checksum": {
+                "type": "sha1",
+                "value": "1f1419bf9c10a1bac6107e1448078a714139cef2"
+            },
+            "created_at": "2018-10-11T11:42:36.628000",
+            "description": "Extraction Finess des Etablissements G\u00e9olocalis\u00e9s au 03/10/2018",
+            "extras": {},
+            "filesize": 43367803,
+            "filetype": "file",
+            "format": "csv",
+            "id": "9154dced-e0fd-4cbb-acfe-f33bc12a1303",
+            "last_modified": "2018-10-11T11:48:14.557000",
+            "latest": "https://www.data.gouv.fr/fr/datasets/r/9154dced-e0fd-4cbb-acfe-f33bc12a1303",
+            "metrics": {
+                "views": 20
+            },
+            "mime": "text/csv",
+            "preview_url": "/tabular/preview/?url=https%3A%2F%2Fstatic.data.gouv.fr%2Fresources%2Ffiness-extraction-du-fichier-des-etablissements%2F20181011-114801%2Fetalab-cs1100507-stock-20181011-0450.csv",
+            "published": "2018-10-11T11:42:36",
+            "title": "Extraction Finess des Etablissements G\u00e9olocalis\u00e9s au 03/10/2018",
+            "type": "main",
+            "url": "https://static.data.gouv.fr/resources/finess-extraction-du-fichier-des-etablissements/20181011-114801/etalab-cs1100507-stock-20181011-0450.csv"
+        },
+        {
+            "checksum": {
+                "type": "sha1",
+                "value": "8b7177d98515787b99a5b47768de8848e1f84b0a"
+            },
+            "created_at": "2018-04-19T15:50:42.142000",
+            "description": "HISTORIQUE des Etablissements Sanitaires et Sociaux 2004-2017",
+            "extras": {},
+            "filesize": 116256600,
+            "filetype": "file",
+            "format": "zip",
+            "id": "b1a13def-b921-4c42-8105-0991e9e73896",
+            "last_modified": "2018-04-19T15:50:50.865000",
+            "latest": "https://www.data.gouv.fr/fr/datasets/r/b1a13def-b921-4c42-8105-0991e9e73896",
+            "metrics": {
+                "nb_hits": 0,
+                "nb_uniq_visitors": 0,
+                "nb_visits": 0,
+                "views": 24
+            },
+            "mime": "application/zip",
+            "preview_url": null,
+            "published": "2018-04-19T15:50:42",
+            "title": "HISTORIQUE des Etablissements Sanitaires et Sociaux 2004-2017",
+            "type": "main",
+            "url": "https://www.data.gouv.fr/s/resources/finess-extraction-du-fichier-des-etablissements/20180419-155034/etalab_stock_et_historique_2004-2017.zip"
+        }
+    ],
+    "slug": "finess-extraction-du-fichier-des-etablissements",
+    "spatial": {
+        "geom": null,
+        "granularity": "fr:commune",
+        "zones": [
+            "country:fr"
+        ]
+    },
+    "tags": [
+        "activites-de-soins",
+        "autorisations",
+        "etablissement",
+        "etablissement-hospitalier",
+        "etablissements-sanitaires",
+        "finess"
+    ],
+    "temporal_coverage": {
+        "end": "2018-11-15",
+        "start": "2015-03-18"
+    },
+    "title": "FINESS Extraction du Fichier des \u00e9tablissements",
+    "uri": "https://www.data.gouv.fr/api/1/datasets/finess-extraction-du-fichier-des-etablissements/"
+}
