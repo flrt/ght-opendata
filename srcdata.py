@@ -16,6 +16,7 @@ import requests
 import json
 import os.path
 import os
+import shutil
 
 DATA_GOUV_FINESS_DATASET_ID = "53699569a3a729239d2046eb"
 DATA_GOUV_FINESS_URL = (

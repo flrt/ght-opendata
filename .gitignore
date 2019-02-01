@@ -3,3 +3,4 @@ files/*
 __pycache__/*
 output/*
 xsd/*
+.DS_Store
