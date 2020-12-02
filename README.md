@@ -95,9 +95,14 @@ Il suffit de constuire le container
 $ docker build -t ght .
 ```
 
+Créer un répertoire 'files' qui contient les fichiers téléchargés
+```
+mkdir files
+``` 
+
 Puis d'exécuter un bash
 ```
-docker run -t -v "$PWD":/opt ght /bin/bash
+docker run -it -v "$PWD":/opt ght /bin/bash
 ```
 
 Et de lancer le programme de génération ou de téléchargement des données sources

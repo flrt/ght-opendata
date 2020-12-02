@@ -178,9 +178,11 @@ class GHT:
                 # aucun fichier, telechargement
                 local_filename = srcdata.download_sante_gouv_ght(GHT.SRCDIR)
 
-        xl = pandas.ExcelFile(local_filename, dtype=str)
-        self.df_ght = xl.parse("Feuil1")
-        self.df_ght.columns = GHT.GHT_KEYS
+        # Lecture du fichier excel, changement des noms de colonnes
+        self.df_ght = pandas.read_excel(local_filename, sheet_name=0, dtype=str)
+        _keys = list(self.df_ght.columns).copy()
+        _keys[0:len(GHT.GHT_KEYS)] = GHT.GHT_KEYS
+        self.df_ght.columns = _keys
 
         local_filename = etalab_filename
         if not etalab_filename or not os.path.exists(etalab_filename):

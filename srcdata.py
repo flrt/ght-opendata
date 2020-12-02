@@ -24,7 +24,7 @@ DATA_GOUV_FINESS_URL = (
 )
 DATA_GOUV_FINESS_GEO = "etalab-cs1100507-stock"
 
-SANTE_GOUV_GHT_FILENAME = "dgos_ght_liste_2017_10_31.xlsx"
+SANTE_GOUV_GHT_FILENAME = "dgos_ght_liste_290119_2.xlsx"
 SANTE_GOUV_GHT_URL = (
     f"https://solidarites-sante.gouv.fr/IMG/xlsx/{SANTE_GOUV_GHT_FILENAME}"
 )
