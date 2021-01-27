@@ -4,3 +4,8 @@ __pycache__/*
 output/*
 xsd/*
 .DS_Store
+pyvenv.cfg
+lib/
+lib64/
+include/
+bin/

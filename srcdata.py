@@ -29,6 +29,7 @@ SANTE_GOUV_GHT_URL = (
     f"https://solidarites-sante.gouv.fr/IMG/xlsx/{SANTE_GOUV_GHT_FILENAME}"
 )
 
+
 def download(url, filename):
     """
         Telechargement de l'URL dans le fichier destination
